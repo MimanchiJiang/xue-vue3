@@ -4,6 +4,8 @@ import { createWebHashHistory, createRouter } from 'vue-router'
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
 import './index.scss'
+import IconSvg from "./components/Icon.vue"
+
 
 const history = createWebHashHistory()
 const router = createRouter({
@@ -11,11 +13,12 @@ const router = createRouter({
     routes: [
         { path: '/', component: Home },
         { path: '/doc', component: Doc }
-
     ]
 })
 
 const app = createApp(App)
+app.component('icon-svg', IconSvg)
+
 app.use(router)
 app.mount('#app')
 
