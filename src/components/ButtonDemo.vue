@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Switch 的文档</p>
+        <p>Button 的文档</p>
         <p>Switch 的文档</p>
         <p>Switch 的文档</p>
         <p>Switch 的文档</p>
