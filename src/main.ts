@@ -1,6 +1,7 @@
+import './lib/xue.scss'
+import './index.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.scss'
 import IconSvg from "./components/Icon.vue"
 import { router } from './router';
 

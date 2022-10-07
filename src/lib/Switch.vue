@@ -1,10 +1,9 @@
 <template>
     <div>
-        <button @click="toggle" :class="{checked:value}"><span></span></button>
+        <button class="xue-switch" @click="toggle" :class="{'xue-checked':value}"><span></span></button>
     </div>
 </template>
 <script lang="ts">
-import { ref } from 'vue';
 export default {
     props: {
         value: Boolean
@@ -19,11 +18,11 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 
-button {
+.xue-switch {
     height: $h;
     width: $h*2;
     border: none;
@@ -42,7 +41,7 @@ button {
         transition: all 250ms;
     }
 
-    &.checked {
+    &.xue-checked {
         background: #1890ff;
 
         >span {
@@ -61,7 +60,7 @@ button {
         }
     }
 
-    &.checked:active {
+    &.xue-checked:active {
         >span {
             width: $h2 + 4px;
             margin-left: -4px;
