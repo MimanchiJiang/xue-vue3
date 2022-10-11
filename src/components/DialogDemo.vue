@@ -7,11 +7,14 @@
             <div>some content</div>
         </template>
         <template v-slot:title>
-            <strong>加粗的标题</strong>
+            <strong>重要提示</strong>
         </template>
     </Dialog>
+
+
     <h1>示例2</h1>
     <Button @click="showDialog"> show </Button>
+
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue"

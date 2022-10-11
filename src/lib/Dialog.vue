@@ -23,6 +23,7 @@
 </template>
 <script lang="ts">
 import Button from "../lib/Button.vue"
+import { computed } from 'vue';
 export default {
     props: {
 
@@ -82,6 +83,8 @@ $border-color: #d9d9d9;
     box-shadow: 0 0 3px fade_out(black, 0.5);
     min-width: 15em;
     max-width: 90%;
+
+
 
     &-overlay {
         position: fixed;
