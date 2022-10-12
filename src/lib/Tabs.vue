@@ -1,9 +1,10 @@
 <template>
     <div class="xue-tabs">
-        <div class="xue-tabs-nav">
+        <div class="xue-tabs-nav" ref="container">
             <div class="xue-tabs-nav-item" @click="select(t)" :class="{selected:t== selected}"
-                v-for="(t,index) in titles" :key="index">
+                v-for="(t,index) in titles" :key="index" :ref="el => {if(el) navItems[index] = el}">
                 {{t}}</div>
+            <div class="xue-tabs-nav-indicator" ref="indicator"></div>
         </div>
         <div class="xue-tabs-content">
             <component class="xue-tabs-content-item" :class="{selected:c.props.title == selected}" v-for="c in defaults"
@@ -13,7 +14,7 @@
 </template>
 <script lang="ts">
 import Tab from "./Tab.vue";
-import { computed } from 'vue';
+import { computed, onMounted, onUpdated, ref } from 'vue';
 export default {
     props: {
         selected: {
@@ -21,6 +22,22 @@ export default {
         }
     },
     setup(props, context) {
+        const navItems = ref<HTMLDivElement[]>([])
+        const indicator = ref<HTMLDivElement>()
+        const container = ref<HTMLDivElement>()
+        const x = () => {
+            const divs = navItems.value
+            const result = divs.filter(div => div.classList.contains('selected'))[0]
+            const { width } = result.getBoundingClientRect()
+            indicator.value!.style.width = width + 'px'
+            const { left: left1 } = container.value.getBoundingClientRect()
+            const { left: left2 } = result.getBoundingClientRect()
+            const left = left2 - left1
+            indicator.value.style.left = left + 'px'
+        }
+        onMounted((x))
+        onUpdated((x))
+
         //@ts-ignore
         const defaults = context.slots.default()
         defaults.forEach((tag) => {
@@ -30,7 +47,6 @@ export default {
         })
         const current = computed(() => {
             return defaults.filter((tag) => {
-                console.log('current 被重置了')
                 return tag.props!.title == props.selected
             })[0]
         })
@@ -42,7 +58,7 @@ export default {
             context.emit('update:selected', title)
         }
         return {
-            defaults, titles, current, select
+            defaults, titles, current, select, navItems, indicator, container
         }
     }
 }
@@ -57,6 +73,7 @@ $border-color: #d9d9d9;
         display: flex;
         color: $color;
         border-bottom: 1px solid $border-color;
+        position: relative;
 
         &-item {
             padding: 8px 0;
@@ -70,6 +87,16 @@ $border-color: #d9d9d9;
             &.selected {
                 color: $blue;
             }
+        }
+
+        &-indicator {
+            position: absolute;
+            height: 3px;
+            background: $blue;
+            left: 0;
+            bottom: -1px;
+            width: 100px;
+            transition: all 250ms;
         }
     }
 
