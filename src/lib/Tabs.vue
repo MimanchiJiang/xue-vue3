@@ -2,7 +2,7 @@
     <div class="xue-tabs">
         <div class="xue-tabs-nav" ref="container">
             <div class="xue-tabs-nav-item" @click="select(t)" :class="{selected:t== selected}"
-                v-for="(t,index) in titles" :key="index" :ref="el => {if(el) navItems[index] = el}">
+                v-for="(t,index) in titles" :key="index" :ref="el => {if(t==selected) selectedItem = el}">
                 {{t}}</div>
             <div class="xue-tabs-nav-indicator" ref="indicator"></div>
         </div>
@@ -22,21 +22,21 @@ export default {
         }
     },
     setup(props, context) {
-        const navItems = ref<HTMLDivElement[]>([])
+        const selectedItem = ref<HTMLDivElement>()
         const indicator = ref<HTMLDivElement>()
         const container = ref<HTMLDivElement>()
         const x = () => {
-            const divs = navItems.value
-            const result = divs.filter(div => div.classList.contains('selected'))[0]
-            const { width } = result.getBoundingClientRect()
+            const { width } = selectedItem.value!.getBoundingClientRect()
             indicator.value!.style.width = width + 'px'
-            const { left: left1 } = container.value.getBoundingClientRect()
-            const { left: left2 } = result.getBoundingClientRect()
+            const { left: left1 } = container.value!.getBoundingClientRect()
+            const { left: left2 } = selectedItem.value!.getBoundingClientRect()
             const left = left2 - left1
-            indicator.value.style.left = left + 'px'
+            indicator.value!.style.left = left + 'px'
         }
         onMounted((x))
         onUpdated((x))
+
+
 
         //@ts-ignore
         const defaults = context.slots.default()
@@ -44,11 +44,6 @@ export default {
             if (tag.type !== Tab) {
                 throw new Error('子标签必须是Tab组件')
             }
-        })
-        const current = computed(() => {
-            return defaults.filter((tag) => {
-                return tag.props!.title == props.selected
-            })[0]
         })
         const titles = defaults.map((tag) => {
             //@ts-ignore
@@ -58,7 +53,7 @@ export default {
             context.emit('update:selected', title)
         }
         return {
-            defaults, titles, current, select, navItems, indicator, container
+            defaults, titles, select, selectedItem, indicator, container
         }
     }
 }
