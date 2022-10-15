@@ -7,14 +7,13 @@
             <div class="xue-tabs-nav-indicator" ref="indicator"></div>
         </div>
         <div class="xue-tabs-content">
-            <component class="xue-tabs-content-item" :class="{selected:c.props.title == selected}" v-for="c in defaults"
-                :is="c" />
+            <component :is="current" :key="current.props.title" />
         </div>
     </div>
 </template>
 <script lang="ts">
 import Tab from "./Tab.vue";
-import { computed, onMounted, onUpdated, ref } from 'vue';
+import { ref, watchEffect, onMounted, computed } from 'vue';
 export default {
     props: {
         selected: {
@@ -25,18 +24,16 @@ export default {
         const selectedItem = ref<HTMLDivElement>()
         const indicator = ref<HTMLDivElement>()
         const container = ref<HTMLDivElement>()
-        const x = () => {
-            const { width } = selectedItem.value!.getBoundingClientRect()
-            indicator.value!.style.width = width + 'px'
-            const { left: left1 } = container.value!.getBoundingClientRect()
-            const { left: left2 } = selectedItem.value!.getBoundingClientRect()
-            const left = left2 - left1
-            indicator.value!.style.left = left + 'px'
-        }
-        onMounted((x))
-        onUpdated((x))
-
-
+        onMounted(() => {
+            watchEffect(() => {
+                const { width } = selectedItem.value!.getBoundingClientRect()
+                indicator.value!.style.width = width + 'px'
+                const { left: left1 } = container.value!.getBoundingClientRect()
+                const { left: left2 } = selectedItem.value!.getBoundingClientRect()
+                const left = left2 - left1
+                indicator.value!.style.left = left + 'px'
+            })
+        })
 
         //@ts-ignore
         const defaults = context.slots.default()
@@ -44,6 +41,9 @@ export default {
             if (tag.type !== Tab) {
                 throw new Error('子标签必须是Tab组件')
             }
+        })
+        const current = computed(() => {
+            return defaults.find(tag => tag.props.title == props.selected)
         })
         const titles = defaults.map((tag) => {
             //@ts-ignore
@@ -53,7 +53,7 @@ export default {
             context.emit('update:selected', title)
         }
         return {
-            defaults, titles, select, selectedItem, indicator, container
+            defaults, titles, select, selectedItem, indicator, container, current
         }
     }
 }
@@ -97,14 +97,6 @@ $border-color: #d9d9d9;
 
     &-content {
         padding: 8px 0;
-
-        &-item {
-            display: none;
-
-            &.selected {
-                display: block;
-            }
-        }
     }
 }
 </style>
