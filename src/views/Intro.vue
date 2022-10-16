@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Intro
-    </div>
+    <Markdown path="../markdown/intro.md" />
 </template>

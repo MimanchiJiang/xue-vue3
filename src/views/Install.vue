@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Install
-    </div>
+    <Markdown path="../markdown/install.md" />
 </template>
