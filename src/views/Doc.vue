@@ -1,8 +1,20 @@
 <template>
     <div class="layout">
-        <Topnav class="nav" />
+        <Topnav toggleMenuButtonVisible class="nav" />
         <div class="content">
             <aside v-if="asideVisible">
+                <h2>文档</h2>
+                <ol>
+                    <li>
+                        <router-link to="/doc/intro">介绍</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/install">安装</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/get-started">开始使用</router-link>
+                    </li>
+                </ol>
                 <h2>组件列表</h2>
                 <ol>
                     <li>
@@ -24,7 +36,6 @@
             </main>
         </div>
     </div>
-
 </template>
 <script lang="ts">
 import Topnav from '../components/topnav.vue'
@@ -78,7 +89,7 @@ export default {
 
 aside {
     background: lightblue;
-    width: 150px;
+    width: 130px;
     padding: 16px;
     position: fixed;
     top: 0;
