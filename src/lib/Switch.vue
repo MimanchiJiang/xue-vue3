@@ -1,9 +1,8 @@
 <template>
-    <div>
-        <button class="xue-switch" @click="toggle" :class="{'xue-checked':value}"><span></span></button>
-    </div>
+    <button class="xue-switch" @click="toggle" :class="{'xue-checked':value}"><span></span></button>
 </template>
 <script lang="ts">
+
 export default {
     props: {
         value: Boolean
