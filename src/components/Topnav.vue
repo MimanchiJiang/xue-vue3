@@ -4,11 +4,10 @@
             <svg class="icon">
                 <use xlink:href="#icon-xue"></use>
             </svg>
-
         </div>
         <ul class="menu">
             <li>
-                <router-link to="/doc">文档</router-link>
+                <router-link to="/">首页</router-link>
             </li>
         </ul>
         <span class="toggleAside" @click="toggleMenu">
@@ -58,6 +57,7 @@ $color: #1bb9b2;
     >.logo {
         max-width: 6em;
         margin-right: auto;
+        user-select: none;
 
         >svg {
             width: 32px;

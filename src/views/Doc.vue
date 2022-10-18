@@ -3,7 +3,9 @@
         <Topnav toggleMenuButtonVisible class="nav" />
         <div class="content">
             <aside v-if="asideVisible">
-                <h2>文档</h2>
+                <h2>
+                    文档
+                </h2>
                 <ol>
                     <li>
                         <router-link to="/doc/intro">介绍</router-link>
@@ -96,6 +98,8 @@ aside {
     left: 0;
     padding-top: 70px;
     height: 100%;
+    z-index: 1;
+
 
     >h2 {
         margin-bottom: 4px;

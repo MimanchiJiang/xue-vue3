@@ -6,8 +6,8 @@
     </div>
 </template>
 <script lang="ts">
-import Switch1Demo from '../components/Switch1.demo.vue'
-import Switch2Demo from '../components/Switch2.demo.vue'
+import Switch1Demo from './Switch1.demo.vue'
+import Switch2Demo from './Switch2.demo.vue'
 import Demo from './Demo.vue'
 export default {
     components: {
@@ -20,7 +20,7 @@ export default {
     },
 }
 </script>
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
 $border-color: #d9d9d9;
 
 .demo {
@@ -53,4 +53,4 @@ $border-color: #d9d9d9;
         }
     }
 }
-</style>
+</style> -->

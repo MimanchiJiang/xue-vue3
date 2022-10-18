@@ -58,6 +58,7 @@ $grey: grey;
     box-sizing: border-box;
     height: $h;
     padding: 0 12px;
+    margin-top: 5px;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;

@@ -1,5 +1,5 @@
 <template>
-    <div>Button示例</div>
+    <h1>Button示例</h1>
     <Demo :component="Button1Demo" />
     <Demo :component="Button2Demo" />
     <Demo :component="Button3Demo" />
@@ -15,11 +15,7 @@ import Button4Demo from "./Button4.demo.vue";
 import Button5Demo from "./Button5.demo.vue";
 export default {
     components: {
-        Button1Demo,
-        Button2Demo,
-        Button3Demo,
-        Button4Demo,
-        Button5Demo, Demo
+        Demo
     },
     setup() {
         return {
