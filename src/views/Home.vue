@@ -9,8 +9,6 @@
                 <router-link to="/doc">开始</router-link>
             </p>
         </div>
-
-
     </div>
     <div class="features">
         <ul>
@@ -39,6 +37,7 @@
 
     </div>
 
+
 </template>
 <script lang="ts">
 import Topnav from "../components/topnav.vue"
@@ -50,7 +49,6 @@ export default {
 $green: #02bcb0;
 $border-radius: 4px;
 $color: #1bb9b2;
-
 
 
 .features {
@@ -113,29 +111,39 @@ $color: #1bb9b2;
 }
 
 .topNavAndBanner {
-    background: rgb(227, 255, 253);
-    background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+    background: url(../assets/sky.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+    /* background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%); */
     clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .banner {
-    color: $color;
-    padding: 100px 0;
+    /* color: $color; */
+    color: #fff;
+    padding: 300px 0;
+    margin-right: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size: 20px;
 
     >.actions {
         padding: 8px 0;
 
         a {
-            margin: 0 8px;
-            background: $green;
+            margin: 0 15px;
+            /* background: $green; */
+            background: rgb(138, 193, 231);
             display: inline-block;
             padding: 8px 24px;
             border-radius: $border-radius;
             color: white;
+            font-size: 20px;
 
             &:hover {
                 text-decoration: none;

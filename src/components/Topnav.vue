@@ -2,13 +2,21 @@
     <div class="topnav">
         <div class="logo">
             <svg class="icon">
-                <use xlink:href="#icon-xue"></use>
+                <use xlink:href="#icon-logo"></use>
             </svg>
         </div>
         <ul class="menu">
             <li>
+                <a href="https://i.csdn.net/#/user-center/profile?spm=1000.2115.3001.5111" target="_blank">CSDN</a>
+            </li>
+            <li>
+                <a href="https://www.zhihu.com/people/jiu-chi-25-63" target="_blank">知乎</a>
+            </li>
+            <li>
                 <router-link to="/">首页</router-link>
             </li>
+
+
         </ul>
         <span class="toggleAside" @click="toggleMenu">
             <svg class="icon" aria-hidden="true">
@@ -40,10 +48,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$color: #1bb9b2;
+$color: rgba(17, 17, 17, 0.85);
 
 .topnav {
-    color: $color;
+    /* border: 1px solid red; */
+    text-shadow: 0 0 12px rgb(110 159 193 / 36%), 0 0 12px rgb(110 159 193 / 36%);
+    color: #fff;
+    background-color: $color;
     display: flex;
     padding: 16px;
     position: fixed;
@@ -53,6 +64,10 @@ $color: #1bb9b2;
     z-index: 10;
     justify-content: center;
     align-items: center;
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
 
     >.logo {
         max-width: 6em;
@@ -69,9 +84,10 @@ $color: #1bb9b2;
         display: flex;
         white-space: nowrap;
         flex-wrap: nowrap;
+        margin-right: 100px;
 
         >li {
-            margin: 0 1em;
+            margin: 0px 1em;
         }
     }
 
