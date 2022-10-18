@@ -1,6 +1,6 @@
 <template>
+    <Topnav />
     <div class="topNavAndBanner">
-        <Topnav />
         <div class="banner">
             <h1>轱辘UI</h1>
             <h2>一个厉害的 UI 框架</h2>
@@ -110,7 +110,17 @@ $color: #1bb9b2;
     }
 }
 
+
+
 .topNavAndBanner {
+    animation-duration: 15s, 80s;
+    animation-timing-function: linear, linear;
+    animation-delay: 0s, 0s;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: normal, normal;
+    animation-fill-mode: none, none;
+    animation-play-state: running, running;
+    animation-name: breath;
     background: url(../assets/sky.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -119,6 +129,28 @@ $color: #1bb9b2;
     background-position: center 0;
     /* background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%); */
     clip-path: ellipse(80% 60% at 50% 40%);
+
+    @keyframes breath {
+        0% {
+            background-position: 0% 0%
+        }
+
+        25% {
+            background-position: 15% 15%
+        }
+
+        50% {
+            background-position: 30% 30%
+        }
+
+        75% {
+            background-position: 15% 15%
+        }
+
+        100% {
+            background-position: 0% 0%
+        }
+    }
 }
 
 .banner {

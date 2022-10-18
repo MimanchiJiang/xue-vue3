@@ -1,5 +1,5 @@
 <template>
-    <article class="markdown-body" v-html="content">
+    <article class="markdown-body markdown" v-html="content">
     </article>
 </template>
 
@@ -22,3 +22,9 @@ export default {
 
 }
 </script>
+<style lang="scss" scoped>
+.markdown {
+    font-size: 16px;
+    padding: 10px 0 10px 15px;
+}
+</style>

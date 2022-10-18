@@ -56,9 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    height: 100%;
 
     >.nav {
         flex-shrink: 0;
@@ -69,7 +67,7 @@ export default {
         padding-top: 60px;
         padding-left: 156px;
 
-        @media (max-width: 500px) {
+        @media (max-width: 800px) {
             padding-left: 0;
         }
     }
@@ -84,41 +82,73 @@ export default {
 
     >main {
         flex-grow: 1;
-        padding: 16px;
-        background: white;
+        padding: 16px 200px;
+
+        @media (max-width: 800px) {
+            padding: 16px 20px;
+
+
+        }
     }
 }
 
 aside {
-    background: lightblue;
-    width: 130px;
-    padding: 16px 0;
+    background: rgba(194, 194, 194, 0.5);
+    width: 300px;
+    padding: 100px 0;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 70px;
     height: 100%;
-    z-index: 1;
 
 
     >h2 {
+        text-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+        color: rgb(1, 1, 1);
         margin-bottom: 4px;
-        padding: 0 16px;
+        padding: 0 60px;
     }
 
     >ol {
         >li {
             >a {
+                background: url(../assets/sideBar-unselected.png) no-repeat;
+                background-position-x: 18px;
+                background-position-y: center;
                 display: block;
-                padding: 4px 16px;
+                padding: 15px 60px;
+                text-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+                color: rgb(1, 1, 1);
+                font-size: 18px;
             }
 
             .router-link-active {
-                background: white;
+                background: url(../assets/sideBar-selected.png);
+                background-position-x: left;
+                background-position-y: center;
 
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 5px;
+                    height: 57px;
+                    right: 0;
+                    background-color: rgba(87, 87, 87, 0.5);
+                    margin-top: -15px;
+                }
             }
 
         }
+    }
+
+    li::after {
+        position: absolute;
+        top: 0;
+        left: 37px;
+        content: '';
+        width: 2px;
+        height: 1280px;
+        background: rgba(255, 255, 255, 0.14);
     }
 }
 

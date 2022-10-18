@@ -102,7 +102,7 @@ $color: rgba(17, 17, 17, 0.85);
         background: fade-out(black, 0.9);
     }
 
-    @media (max-width:500px) {
+    @media (max-width:800px) {
         >.menu {
             display: none;
 

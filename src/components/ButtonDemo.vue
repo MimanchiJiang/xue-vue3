@@ -1,5 +1,5 @@
 <template>
-    <h1>Button示例</h1>
+    <h1>Button 示例</h1>
     <Demo :component="Button1Demo" />
     <Demo :component="Button2Demo" />
     <Demo :component="Button3Demo" />
@@ -28,3 +28,8 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+h1 {
+    text-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+}
+</style>

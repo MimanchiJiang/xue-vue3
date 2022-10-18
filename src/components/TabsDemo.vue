@@ -17,3 +17,8 @@ export default {
 }
 
 </script>
+<style lang="scss" scoped>
+h1 {
+    text-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+}
+</style>

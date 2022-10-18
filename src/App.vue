@@ -11,11 +11,10 @@ export default {
   name: 'App',
   setup() {
     const width = document.documentElement.clientWidth
-
-    const asideVisible = ref(width <= 500 ? false : true)
+    const asideVisible = ref(width <= 800 ? false : true)
     provide('asideVisible', asideVisible) //标记 子组件可以使用
     router.afterEach(() => {
-      if (width <= 500) {
+      if (width <= 800) {
         asideVisible.value = false
       }
     })
