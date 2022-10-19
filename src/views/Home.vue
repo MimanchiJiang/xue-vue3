@@ -2,11 +2,11 @@
     <Topnav />
     <div class="topNavAndBanner">
         <div class="banner">
-            <h1>轱辘UI</h1>
-            <h2>一个厉害的 UI 框架</h2>
+            <h1>Sky-UI</h1>
+            <h2>最初的鸟儿是不会飞翔的，飞翔是他们勇敢跃入峡谷的奖励</h2>
             <p class="actions">
-                <a href="https://github.com/MimanchiJiang/xue-vue3">GitHub</a>
-                <router-link to="/doc">开始</router-link>
+                <router-link to="/doc">
+                </router-link>
             </p>
         </div>
     </div>
@@ -55,8 +55,32 @@ $color: #1bb9b2;
     margin: 64px auto;
     padding: 0 16px;
 
+    @media (max-width: 800px) {
+        >ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            >li {
+                font-size: 15px;
+
+                >svg {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                >h3 {
+                    font-size: 20px;
+                }
+
+
+
+            }
+        }
+    }
+
+    /* 800-1200 */
     @media (min-width: 800px) {
-        width: 800px;
 
         >ul {
             >li {
@@ -65,6 +89,7 @@ $color: #1bb9b2;
         }
     }
 
+    /* 1200以上 */
     @media (min-width: 1200px) {
         width: 1200px;
 
@@ -95,11 +120,24 @@ $color: #1bb9b2;
                 grid-area: icon;
                 width: 64px;
                 height: 64px;
+
+                @media (max-width: 800px) {
+                    width: 50px;
+                    height: 50px;
+                    margin-left: 10px;
+                    margin-top: 5px;
+                    grid-area: icon;
+                }
             }
 
             >h3 {
                 grid-area: title;
                 font-size: 28px;
+
+                @media (max-width: 800px) {
+                    grid-area: title;
+                    font-size: 20px;
+                }
             }
 
             >p {
@@ -156,7 +194,7 @@ $color: #1bb9b2;
 .banner {
     /* color: $color; */
     color: #fff;
-    padding: 300px 0;
+    padding: 270px 0;
     margin-right: 70px;
     display: flex;
     justify-content: center;
@@ -164,21 +202,78 @@ $color: #1bb9b2;
     flex-direction: column;
     font-size: 20px;
 
-    >.actions {
-        padding: 8px 0;
+    @media (max-width: 800px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 0;
+        padding-left: 20px;
+        margin-right: 30px;
+        font-size: 10px;
+        text-align: center;
+        color: rgb(1, 132, 127);
+    }
 
-        a {
-            margin: 0 15px;
-            /* background: $green; */
-            background: rgb(138, 193, 231);
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: $border-radius;
-            color: white;
-            font-size: 20px;
+    >.actions {
+        width: 356px;
+        height: 76px;
+        padding: 8px 0;
+        background: url(../assets/开始.png) no-repeat center center;
+
+        @media (max-width: 800px) {
+            width: 178px;
+            height: 38px;
+            background-size: cover;
+        }
+
+        >a {
+            width: 48px;
+            height: 48px;
+            position: relative;
+            display: block;
+            margin: 14px auto 0;
+            border-radius: 50%;
+            border: 0;
+            background: #fff;
+            font-size: 0;
+            cursor: pointer;
+            outline: none;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 28px;
+                height: 28px;
+                transform: translate(-50%, -50%);
+                background: url(../assets/actionButtonBlack.png) no-repeat;
+                transition: background 250ms linear;
+            }
+
+            &:hover::before {
+                background: url(../assets/actionButtonWhite.png);
+
+            }
 
             &:hover {
                 text-decoration: none;
+                background: transparent;
+                background-position: center top;
+            }
+
+            @media (max-width: 800px) {
+                width: 35px;
+                height: 35px;
+                margin: 1px auto 0;
+
+                &::before {
+                    width: 20px;
+                    height: 20px;
+                    background-size: cover;
+                }
             }
         }
     }

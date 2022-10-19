@@ -7,6 +7,11 @@ ol {
     margin: 0;
     padding: 0;
     caret-color: transparent;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
 }
 
 h1,

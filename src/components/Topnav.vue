@@ -1,11 +1,16 @@
 <template>
     <div class="topnav">
         <div class="logo">
-            <svg class="icon">
-                <use xlink:href="#icon-logo"></use>
-            </svg>
+            <router-link to="/">
+                <svg class="icon">
+                    <use xlink:href="#icon-logo"></use>
+                </svg>
+            </router-link>
         </div>
         <ul class="menu">
+            <li>
+                <a href="https://github.com/MimanchiJiang/xue-vue3" target="_blank">GitHub</a>
+            </li>
             <li>
                 <a href="https://i.csdn.net/#/user-center/profile?spm=1000.2115.3001.5111" target="_blank">CSDN</a>
             </li>
@@ -73,6 +78,7 @@ $color: rgba(17, 17, 17, 0.85);
         max-width: 6em;
         margin-right: auto;
         user-select: none;
+        color: white;
 
         >svg {
             width: 32px;
@@ -99,22 +105,26 @@ $color: rgba(17, 17, 17, 0.85);
         display: none;
         width: 32px;
         height: 32px;
-        background: fade-out(black, 0.9);
+        background: $color;
+
+
     }
 
     @media (max-width:800px) {
+        background-color: rgb(17, 17, 17);
+
         >.menu {
             display: none;
-
         }
 
         >.logo {
-            margin: auto 0;
+            margin-right: 30px;
         }
 
         >.toggleAside {
             display: inline-block;
         }
     }
+
 }
 </style>
