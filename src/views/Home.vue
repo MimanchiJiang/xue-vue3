@@ -219,7 +219,7 @@ $color: #1bb9b2;
         width: 356px;
         height: 76px;
         padding: 8px 0;
-        background: url(../assets/开始.png) no-repeat center center;
+        background: url(../assets/action.png) no-repeat center center;
 
         @media (max-width: 800px) {
             width: 178px;
